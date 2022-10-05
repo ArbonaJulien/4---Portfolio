@@ -226,22 +226,20 @@ header {
     }
 
     & .menu {
-        visibility: hidden;
-
         background-color: $color-darkGray;
         width: calc(100vw - 100px);
-        height: calc(100vh - 200px);
+        height: 0;
         border-right: 8px solid $color-white;
         border-bottom: 4px solid $color-white;
 
         transform: translate(-100%, 0);
-        transition: transform .3s ease-out, visibility 0s ease .5s;
+        transition: transform .3s ease-out, height 0s ease .5s;
         
         &.active {
-            visibility: visible;
+            height: calc(100vh - 200px);
 
             transform: translate(0, 0);
-            transition: transform .7s ease-out;
+            transition: height 0s ease, transform .7s ease-out;
         }
 
         & nav {

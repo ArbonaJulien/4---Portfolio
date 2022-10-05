@@ -228,28 +228,27 @@ header .wrapper nav {
 }
 
 header .menu {
-  visibility: hidden;
   background-color: #1D1D1D;
   width: calc(100vw - 100px);
-  height: calc(100vh - 200px);
+  height: 0;
   border-right: 8px solid #fff;
   border-bottom: 4px solid #fff;
   -webkit-transform: translate(-100%, 0);
           transform: translate(-100%, 0);
-  -webkit-transition: visibility 0s ease .5s, -webkit-transform .3s ease-out;
-  transition: visibility 0s ease .5s, -webkit-transform .3s ease-out;
-  transition: transform .3s ease-out, visibility 0s ease .5s;
-  transition: transform .3s ease-out, visibility 0s ease .5s, -webkit-transform .3s ease-out;
+  -webkit-transition: height 0s ease .5s, -webkit-transform .3s ease-out;
+  transition: height 0s ease .5s, -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out, height 0s ease .5s;
+  transition: transform .3s ease-out, height 0s ease .5s, -webkit-transform .3s ease-out;
 }
 
 header .menu.active {
-  visibility: visible;
+  height: calc(100vh - 200px);
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
-  -webkit-transition: -webkit-transform .7s ease-out;
-  transition: -webkit-transform .7s ease-out;
-  transition: transform .7s ease-out;
-  transition: transform .7s ease-out, -webkit-transform .7s ease-out;
+  -webkit-transition: height 0s ease, -webkit-transform .7s ease-out;
+  transition: height 0s ease, -webkit-transform .7s ease-out;
+  transition: height 0s ease, transform .7s ease-out;
+  transition: height 0s ease, transform .7s ease-out, -webkit-transform .7s ease-out;
 }
 
 header .menu nav {
