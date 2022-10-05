@@ -31,6 +31,7 @@ window.onload = function() {
         emailjs.sendForm('service_mvy4gbg', 'template_21lqvfl', this)
         .then(function() {
             console.log('Success !');
+            window.location.reload();
         }, function(error) {
             console.log('Error : ', error);
         })
