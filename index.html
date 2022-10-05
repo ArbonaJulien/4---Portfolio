@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julien Arbona | Frontend developper - Portfolio</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <header>
+        <div class="wrapper">
+            <div class="logo">
+                <a href="#">
+                    <img src="assets/icons/logo.svg" alt="Logo">
+                </a>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#hero-section">About</a></li>
+                    <li><a href="#work-section">Work</a></li>
+                    <li><a href="#contact-section">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="btn-menu">
+                <img src="assets/icons/btnMenu.svg" alt="Menu">
+            </div>
+        </div>
+
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li><a href="#hero-section">About</a></li>
+                    <li><a href="#work-section">Work</a></li>
+                    <li><a href="#contact-section">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="hero-section">
+        <div class="anchor" id="hero-section"></div>
+        <div class="wrapper">
+            <div class="hero-section__picture">
+                <img class="hero-section__picture__frame" src="assets/images/heroSectionBorder.svg" alt="">
+            </div>
+            <div class="hero-section__content">
+                <p>Hi, my name is</p>
+                <div class="hero-section__content__tag-line">
+                    <h1>Julien Arbona.</h1>
+                    <h1>I built thing for the web.</h1>
+                </div>
+                <p>I’m a frontend developer, with strong knowledge of html, CSS and js.</p>
+                <p>I'll be a great partner to bring your insights into real life.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- End of Hero Section -->
+    
+    <div id="app">
+
+    <div class="work-section">
+        <div class="anchor" id="work-section"></div>
+        <div class="title">My Work</div>
+
+        <div class="work-section__preview" v-if="counter >= 0 && window.width > 800 && window.height > 900">
+            <div class="work-section__preview__container">
+
+                
+                <div class="work-section__preview__container__info">
+                    <div class="work-section__preview__container__info__content">
+                        <p class="work-section__preview__container__info__content__title"> {{ works[counter].title }} </p>
+                        <p> {{ works[counter].description }} </p>
+                    </div>
+                    <button class="plain" id="btn_closePreview" v-on:click="counter = -1"><img src="assets/icons/btnClose.svg" alt="Close"></button>
+            </div>
+            <img class="work-section__preview__container__picture" :src="works[counter].pictures[preview_id]" :alt="works[counter].title">
+            <ul class="work-section__preview__container__thumbs">
+                <li v-for="(picture, id) in works[counter].pictures">
+                    <img class="work-section__preview__container__thumbs__item" :src="picture" v-on:click="preview_id = id" alt="">
+                </li>
+            </ul>
+            
+            <div class="work-section__preview__container__cta">
+                <a class="btn leaf light" :href="works[counter].link">See case</a>
+            </div>
+            
+            
+        </div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="work-section__list">
+            <div class="work-section__list__item" v-for="(work, id) in works">
+
+                <img class="work-section__list__item__picture" :src="work.pictures[0]" alt="Watchkart" v-on:click="counter = id">
+                <div class="work-section__list__item__container">
+                    <div class="work-section__list__item__container__info">
+                        <p class="work-section__list__item__container__info__name"> {{ work.title }} </p>
+                        <p> {{ work.description }} </p>
+                    </div>
+                    <a :href="work.link" class="btn dark rounded">See Case</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End of Work Section -->
+
+    <div class="contact-section">
+        <div class="anchor" id="contact-section"></div>
+        <div class="title">Contact</div>
+        <div class="contact-section__content">
+            <p>I’m interested in freelance opportunities, you can hire me on fiveer.</p>
+            <p>If you have other request or question, don’t hesitate to use the form.</p>
+        </div>
+        <form action="#" class="contact-section__form" id="contact-form">
+            <input type="hidden" name="contact_number">
+            <div class="contact-section__form__cta">
+                <div class="contact-section__form__cta__pin"></div>
+                <ul>
+                    <li><a href="https://fr.fiverr.com/share/Y6qWwQ"><img src="assets/icons/fiverr.svg" alt="fiverr"></a></li>
+                    <li><a href="https://github.com/ArbonaJulien"><img class="small" src="assets/icons/github.svg" alt="Github"></a></li>
+                </ul>
+            </div>
+            <div class="contact-section__form__line">
+                <input type="text" name="user_name" id="name" placeholder="Name">
+                <input type="email" name="user_email" id="email" placeholder="Email">
+            </div>
+            <input type="text" name="subject" id="subject" placeholder="Subject">
+            <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+            <button class="light leaf">Send Message</button>
+        </form>
+    </div>
+</div>
+
+    <footer>
+        <div class="wrapper">
+
+            <div class="social-network">
+                <ul>
+                    <li><a href="https://fr.fiverr.com/share/Y6qWwQ"><img src="assets/icons/fiverr.svg" alt="fiverr"></a></li>
+                    <li><a href="https://github.com/ArbonaJulien"><img src="assets/icons/github.svg" alt="Github"></a></li>
+                    <li><a href="mailto:julien.arbona@yoursite.com"><img src="assets/icons/email.svg" alt="Send email"></a></li>
+                </ul>
+            </div>
+            <p class="copyright">Copyright 2022 | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
